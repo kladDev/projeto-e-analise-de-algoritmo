@@ -12,9 +12,7 @@ def calculate_frequency(data):
 
 
 h = HeapMin()
-text = "aaatttttjooooooopp"
+text = "IFMA CAMPUS CAXIAS"
 t = calculate_frequency(text)
 nodes = h.add_node(t)
-# print(h.build_huffman_tree())
 h.show_nodes(nodes)
-# h.add_node()

@@ -2,6 +2,7 @@ class Node:
     def __init__(self, char, freq):
         self.char = char
         self.freq = freq
+        self.code = ''
         self.left = None
         self.right = None
 
@@ -10,6 +11,7 @@ class HeapMin:
 
     def __init__(self) -> None:
         self.heap = []
+        self.level = 0
 
     def add_node(self, data):
         self.heap = [Node(char, freq) for char, freq in data.items()]
@@ -19,7 +21,8 @@ class HeapMin:
             left_node = self.heap.pop(0)
             right_node = self.heap.pop(0)
 
-            merged_node = Node('-', left_node.freq + right_node.freq)
+            self.level += 1
+            merged_node = Node(f'N{self.level}', left_node.freq + right_node.freq)
             merged_node.left = left_node
             merged_node.right = right_node
 
