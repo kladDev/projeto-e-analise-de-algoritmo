@@ -15,4 +15,5 @@ h = HeapMin()
 text = "IFMA CAMPUS CAXIAS"
 t = calculate_frequency(text)
 nodes = h.add_node(t)
+a = h.build_huffman_codes(nodes)
 h.show_nodes(nodes)

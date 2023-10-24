@@ -2,7 +2,6 @@ class Node:
     def __init__(self, char, freq):
         self.char = char
         self.freq = freq
-        self.code = ''
         self.left = None
         self.right = None
 
@@ -30,6 +29,16 @@ class HeapMin:
             self.heap.sort(key=lambda x: x.freq)
 
         return self.heap[0]
+
+    def build_huffman_codes(self, code=""):
+
+        if self.heap is not None:
+            return
+        
+        self.heap.char = code
+        
+        self.build_huffman_codes(self.heap.left, "1")
+        self.build_huffman_codes(self.heap.right, "0")
 
     def show_nodes(self, node, level=0):
         if node is not None:
