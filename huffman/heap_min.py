@@ -30,15 +30,13 @@ class HeapMin:
 
         return self.heap[0]
 
-    def build_huffman_codes(self, code=""):
+    def build_huffman_codes(self, data, code=None):
+        if data is not None:
+            if code:
+                data.char = code 
 
-        if self.heap is not None:
-            return
-        
-        self.heap.char = code
-        
-        self.build_huffman_codes(self.heap.left, "1")
-        self.build_huffman_codes(self.heap.right, "0")
+            self.build_huffman_codes(data.left, "1")
+            self.build_huffman_codes(data.right, "0")
 
     def show_nodes(self, node, level=0):
         if node is not None:
