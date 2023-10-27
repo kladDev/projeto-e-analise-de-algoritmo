@@ -17,20 +17,6 @@ vertices.add_edge(7, 9, 7)
 vertices.add_edge(8, 10, 4)
 vertices.add_edge(9, 10, 9)
 
-menor = vertices.shortest_path(10)
-print(menor)
-
-
-path = []
-last_element = vertices.grafo[-1]
-
-def menor_caminho_dinamico(grafo, inicio, fim):
-    distancias = {inicio: 0}
-    for i in range(len(grafo) - 1):
-        for u, v, w in grafo:
-            if u in distancias:
-                if v not in distancias:
-                    distancias[v] = distancias[u] + w
-                else:
-                    distancias[v] = min(distancias[v], distancias[u] + w)
-    return distancias[fim]
+print(vertices.grafo)
+path = vertices.shortest_path(10)
+print(path)
